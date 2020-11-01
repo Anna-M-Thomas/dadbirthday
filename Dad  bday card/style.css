@@ -1,0 +1,41 @@
+
+
+html {
+  box-sizing: border-box;
+}
+
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+}
+
+.top {
+  text-align: center;
+}
+
+#clickdiv {
+  text-align: center;
+}
+
+img {
+  width:100%;
+  border: 5px solid rgb(255, 102, 97);
+}
+
+h1 {
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media all and (max-width:500px) {
+
+}

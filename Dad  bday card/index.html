@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Dad</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="wrapper">
+    
+    <header class="top">
+      <h1>Happy Birthday Dad!!!!</h1>
+    </header>
+
+
+    <section class="hero">
+    	<div id="clickdiv">Click here ↓</div>
+      <img src="./src/scuffy.jpg">
+    </section>
+
+  </div>
+
+    <audio src="src/birthday.m4a"></audio>
+
+  <script>
+ const image = document.querySelector('img');
+ const h1 = document.querySelector('h1');
+ const audio = document.querySelector('audio');
+ const clickdiv = document.querySelector('#clickdiv');
+ let angle = 0;
+ let up = true;
+ let clicked = false;
+ let interval;
+ let hue = 0;
+
+
+ function play(){
+	if(clicked==false){
+		clicked = true;
+		interval = setInterval(animate, 20);
+		audio.play();
+		clickdiv.style.visibility = "hidden";
+	}
+	else {
+		clicked = false;
+		clearInterval(interval);
+		angle = 0;
+		image.style.transform = `rotate(${angle}deg)`;
+		h1.style.transform = `rotate(${angle/2}deg)`;
+		h1.style.color = `black`;
+		clickdiv.style.visibility = "visible";
+		audio.pause();
+		audio.currentTime = 0;
+	}
+}
+
+
+ function animate() {
+  	hue++;
+  	if (hue >= 360) {
+   	 hue = 0;
+  	}
+ 	if(angle == 20){
+ 		up = false;
+ 	}
+ 	if(angle == -20){
+ 		up = true;
+ 	}
+ 	up ? angle++ : angle--;
+ 	h1.style.color = `hsl(${hue}, 100%, 50%)`;
+ 	image.style.transform = `rotate(${angle}deg)`;
+ 	h1.style.transform = `rotate(${angle/2}deg)`;
+ }
+
+ image.addEventListener("click", play);
+
+  </script>
+</body>
+</html>
